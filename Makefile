@@ -4,7 +4,8 @@ NAME = flappigeon
 SOURCE = ./srcs/
 LIB = ./lib/libraylib.a
 CFILES = main.c\
-		 pigeon.c
+		 pigeon.c\
+		 colors.c
 
 ${NAME}:
 	${CC} ${FLAGS} ${LIB} ${addprefix ${SOURCE}, ${CFILES}} -o ${NAME}
