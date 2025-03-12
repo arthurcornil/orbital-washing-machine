@@ -12,6 +12,8 @@
 # define GRAVITY 0.2f
 # define COLOR_NUMBER 5
 # define WALL_GAP_SIZE 60
+# define SETTINGS_ICON_WIDTH 23
+# define SETTINGS_ICON_HEIGHT 25
 
 typedef struct wall
 {
@@ -45,6 +47,14 @@ typedef struct wm
 	void (*update)(struct wm *, walls *);
 	void (*propel)(struct wm *);
 }	wm;
+
+typedef struct settings
+{
+	Texture2D sprite;
+	void (*play);
+	void (*toggle_music);
+	void (*toggle_fx);
+}	settings;
 
 void	init_wm(wm *wm);
 void	init_walls(walls *walls);

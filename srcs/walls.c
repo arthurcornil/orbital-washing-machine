@@ -52,7 +52,7 @@ static void	grow(walls *walls)
 
 void	generate_walls(walls *walls)
 {
-	float angle = -(M_PI / walls->number);
+	float angle = -(M_PI / walls->number + 1);
 	srand(time(NULL));
 	for (int i = 0; i < (walls->number); i ++)
 	{
