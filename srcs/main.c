@@ -49,6 +49,7 @@ int	main(void)
 		//Draw
 		BeginDrawing();
 		DrawCircle(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 250, WHITE);
+		DrawRectangle(SCREEN_WIDTH / 2 - 2, SCREEN_HEIGHT / 2 - 250, 4, 250, (Color){0, 0, 0, 40});
 		pigeon.draw(&pigeon);
 		walls.draw(&walls);
 		draw_middle_circle(&pigeon);
