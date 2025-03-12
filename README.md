@@ -4,6 +4,6 @@
 
 <h3 align="center">Orbital Washing Machine</h3>
 <p align="center">
-Well, it had to be something. So I picked a washing machine ...
+You shall maintain a washing machine in orbital state.
 <br />
 </div>
