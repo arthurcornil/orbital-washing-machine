@@ -5,7 +5,8 @@ SOURCE = ./srcs/
 LIB = ./lib/libraylib.a
 CFILES = main.c\
 		 pigeon.c\
-		 colors.c
+		 colors.c\
+		 walls.c
 
 ${NAME}:
 	${CC} ${FLAGS} ${LIB} ${addprefix ${SOURCE}, ${CFILES}} -o ${NAME}
