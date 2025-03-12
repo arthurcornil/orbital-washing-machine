@@ -8,6 +8,7 @@
 
 # define SCREEN_HEIGHT 800
 # define SCREEN_WIDTH 800
+# define GRAVITY 0.2f
 # define COLOR_NUMBER 5
 # define WALL_GAP_SIZE 60
 
@@ -18,8 +19,10 @@ typedef struct pigeon
 	float angle;
 	float speed;
 	int radius;
+	float acceleration;
 	void (*draw)(struct pigeon *);
 	void (*update)(struct pigeon *);
+	void (*flap)(struct pigeon *);
 }	pigeon;
 
 typedef struct wall
