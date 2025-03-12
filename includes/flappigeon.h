@@ -5,6 +5,7 @@
 # include <math.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <time.h>
 
 # define SCREEN_HEIGHT 800
 # define SCREEN_WIDTH 800
