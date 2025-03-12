@@ -14,8 +14,9 @@ static void	update(pigeon *p)
 {
 	p->angle += p->speed;
 	p->acceleration -= GRAVITY;
-	printf("%f\n", p->acceleration);
 	p->radius += p->acceleration;
+	if (p->radius >= 240)
+		p->radius = 240;
 	if (p->angle >= 2 * M_PI)
 	{
 		p->score ++;
