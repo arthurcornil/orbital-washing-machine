@@ -18,7 +18,7 @@ static void	draw(wm *wm)
 	);
 }
 
-static void	update(wm *wm)
+static void	update(wm *wm, walls *walls)
 {
 	wm->angle += wm->speed;
 	wm->acceleration -= GRAVITY;
@@ -28,6 +28,8 @@ static void	update(wm *wm)
 	if (wm->angle >= 2 * M_PI)
 	{
 		wm->score ++;
+		if (!(wm->score % 5))
+			walls->must_hide = true;
 		wm->angle -= 2 * M_PI;
 	}
 	wm->position.x = (float)SCREEN_WIDTH / 2 + (wm->radius * sin(wm->angle));
@@ -36,9 +38,9 @@ static void	update(wm *wm)
 
 static void	propel(wm *wm)
 {
-	wm->acceleration += 2.0f;
-	if (wm->acceleration > 3.0f)
-		wm->acceleration = 3.0f;
+	wm->acceleration += 2.2f;
+	if (wm->acceleration > 3.2f)
+		wm->acceleration = 3.2f;
 }
 
 void	init_wm(wm *wm)

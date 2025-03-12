@@ -14,9 +14,9 @@ void	draw_middle_circle(wm *wm)
 
 void	update_state(wm *wm, walls *walls)
 {
-		wm->update(wm);
-		walls->update(walls);
 		update_color(wm->score, colors);
+		wm->update(wm, walls);
+		walls->update(walls);
 }
 
 int	main(void)
@@ -26,7 +26,7 @@ int	main(void)
 	bool	play = false;
 
 	SetConfigFlags(FLAG_MSAA_4X_HINT);
-	InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Flappigeon");
+	InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Orbital Washing Machine");
 	SetTargetFPS(60);
 
 	init_wm(&wm);
@@ -34,7 +34,6 @@ int	main(void)
 
 	while (!WindowShouldClose())
 	{
-		//Take user input
 		if (IsKeyDown(KEY_SPACE) || IsMouseButtonDown(MOUSE_BUTTON_LEFT))
 		{
 			if (!play)
@@ -42,11 +41,9 @@ int	main(void)
 			wm.propel(&wm);
 		}
 
-		//Update state
 		if (play)
 			update_state(&wm, &walls);
 
-		//Draw
 		BeginDrawing();
 		DrawCircle(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 250, (Color){2, 12, 28, 255});
 		DrawRectangle(SCREEN_WIDTH / 2 - 2, SCREEN_HEIGHT / 2 - 250, 4, 250, (Color){255, 255, 255, 20});
