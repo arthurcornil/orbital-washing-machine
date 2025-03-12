@@ -94,7 +94,6 @@ static void	hide (walls *walls)
 
 static void update(walls *walls)
 {
-	printf("walls->grown: %d, walls->must_hide: %d\n", walls->grown, walls->must_hide);
 	if (!walls->grown && !walls->must_hide)
 	{
 		grow(walls);
