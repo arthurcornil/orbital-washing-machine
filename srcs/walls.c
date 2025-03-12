@@ -1,4 +1,4 @@
-#include "../includes/flappigeon.h"
+#include "../includes/owm.h"
 
 static void	draw(walls *walls)
 {

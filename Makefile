@@ -1,10 +1,10 @@
 CC = clang
-FLAGS = -framework CoreVideo -framework IOKit -framework Cocoa -framework GLUT -framework OpenGL -I ./includes
-NAME = flappigeon
+FLAGS = -framework CoreVideo -framework IOKit -framework Cocoa -framework GLUT -framework OpenGL -I ./includes -g
+NAME = owm
 SOURCE = ./srcs/
 LIB = ./lib/libraylib.a
 CFILES = main.c\
-		 pigeon.c\
+		 wm.c\
 		 colors.c\
 		 walls.c
 

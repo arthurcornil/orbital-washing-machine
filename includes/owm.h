@@ -1,5 +1,5 @@
-#ifndef FLAPPIGEON_H
-# define FLAPPIGEON_H
+#ifndef OWM_H
+# define OWM_H
 
 # include "raylib.h"
 # include <math.h>
@@ -13,7 +13,7 @@
 # define COLOR_NUMBER 5
 # define WALL_GAP_SIZE 60
 
-typedef struct pigeon
+typedef struct wm
 {
 	Vector2 position;
 	unsigned int score;
@@ -21,10 +21,11 @@ typedef struct pigeon
 	float speed;
 	int radius;
 	float acceleration;
-	void (*draw)(struct pigeon *);
-	void (*update)(struct pigeon *);
-	void (*flap)(struct pigeon *);
-}	pigeon;
+	Texture2D texture;
+	void (*draw)(struct wm *);
+	void (*update)(struct wm *);
+	void (*propel)(struct wm *);
+}	wm;
 
 typedef struct wall
 {
@@ -43,7 +44,7 @@ typedef struct walls
 	void (*update)(struct walls *);
 }	walls;
 
-void	init_pigeon(pigeon *pigeon);
+void	init_wm(wm *wm);
 void	init_walls(walls *walls);
 void	update_color(unsigned int score, Color *colors);
 

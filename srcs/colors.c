@@ -1,4 +1,4 @@
-#include "../includes/flappigeon.h"
+#include "../includes/owm.h"
 
 Color colors[COLOR_NUMBER] = {
     {103, 194, 89, 255},
