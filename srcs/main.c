@@ -32,7 +32,6 @@ int	main(void)
 	InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Flappigeon");
 	SetTargetFPS(60);
 
-	srand(time(NULL));
 	while (!WindowShouldClose())
 	{
 		//Take user input

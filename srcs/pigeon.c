@@ -28,7 +28,7 @@ static void	update(pigeon *p)
 
 static void	flap(pigeon *p)
 {
-	p->acceleration += 1;
+	p->acceleration += 2.0f;
 	if (p->acceleration > 3.0f)
 		p->acceleration = 3.0f;
 }

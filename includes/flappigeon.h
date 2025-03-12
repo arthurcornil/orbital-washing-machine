@@ -30,6 +30,7 @@ typedef struct wall
 {
 	float angle;
 	unsigned int gap_position;
+	float grown_percentage;
 }	wall;
 
 typedef struct walls
@@ -37,6 +38,7 @@ typedef struct walls
 	wall collection[20];
 	unsigned int number;
 	float speed;
+	bool grown;
 	void (*draw)(struct walls *);
 	void (*update)(struct walls *);
 }	walls;
