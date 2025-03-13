@@ -12,7 +12,6 @@ ${NAME}:
 	${CC} ${FLAGS} ${LIB} ${addprefix ${SOURCE}, ${CFILES}} -o ${NAME}
 
 clean:
-
-fclean: clean
+	rm -f ${NAME}
 
 .PHONY: ${NAME} clean fclean
