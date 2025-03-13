@@ -10,6 +10,11 @@ You shall maintain a washing machine in orbital state.
 <img src="assets/gameplay.gif" alt="Orbital Washing Machine Gameplay" width="400">
 </div>
 
+### Built With
+
+![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white)
+![RayLib](https://img.shields.io/badge/RAYLIB-FFFFFF?style=for-the-badge&logo=raylib&logoColor=black)
+
 ### Installation
 
 1. Clone the repo
