@@ -6,5 +6,5 @@
 <p align="center">
 You shall maintain a washing machine in orbital state.
 <br />
+<img src="assets/gameplay.gif" alt="Orbital Washing Machine Gameplay" width="400">
 </div>
-<img src="assets/gameplay.gif" alt="Orbital Washing Machine Gameplay" width="600">
