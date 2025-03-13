@@ -1,5 +1,5 @@
 CC = clang
-FLAGS = -framework CoreVideo -framework IOKit -framework Cocoa -framework GLUT -framework OpenGL -I ./includes -g
+FLAGS = -framework CoreVideo -framework IOKit -framework Cocoa -framework GLUT -framework OpenGL -I ./includes
 NAME = owm
 SOURCE = ./srcs/
 LIB = ./lib/libraylib.a

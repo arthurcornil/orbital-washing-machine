@@ -62,6 +62,8 @@ int	main(void)
 				play = true;
 			wm.propel(&wm);
 		}
+		else if (wm.is_propelling)
+			wm.is_propelling = false;
 
 		if (play)
 			update_state(&wm, &walls);

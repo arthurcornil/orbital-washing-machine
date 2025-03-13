@@ -59,7 +59,7 @@ void	generate_walls(walls *walls)
 		walls->collection[i] = (wall){ angle, rand() % (181 - WALL_GAP_SIZE) };
 		walls->collection[i].grown_percentage = 0.0f;
 		walls->collection[i].going_up = i % 2 == 0;
-		angle += (M_PI / (float)((float)walls->number / 2.0f));
+		angle += (M_PI / ((float)walls->number / 2.0f));
 	}
 }
 
@@ -95,9 +95,7 @@ static void	hide (walls *walls)
 static void update(walls *walls)
 {
 	if (!walls->grown && !walls->must_hide)
-	{
 		grow(walls);
-	}
 	else if (walls->grown && walls->must_hide)
 	{
 		hide(walls);

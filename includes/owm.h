@@ -14,6 +14,7 @@
 # define WALL_GAP_SIZE 60
 # define SETTINGS_ICON_WIDTH 23
 # define SETTINGS_ICON_HEIGHT 25
+# define ANIMATION_FPS 24
 
 typedef struct wall
 {
@@ -34,6 +35,13 @@ typedef struct walls
 	void (*update)(struct walls *);
 }	walls;
 
+typedef struct flame
+{
+	Texture2D atlas;
+	Rectangle frames[6];
+	void (*show)(struct flame *);
+}	flame;
+
 typedef struct wm
 {
 	Vector2 position;
@@ -43,9 +51,12 @@ typedef struct wm
 	int radius;
 	float acceleration;
 	Texture2D texture;
+	flame *flame;
+	bool is_propelling;
 	void (*draw)(struct wm *);
 	void (*update)(struct wm *, walls *);
 	void (*propel)(struct wm *);
+	void (*show_flame)(struct wm *);
 }	wm;
 
 typedef struct settings

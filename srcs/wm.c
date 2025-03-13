@@ -1,5 +1,19 @@
 #include "../includes/owm.h"
 
+static void	show_flame(wm *wm)
+{
+	int frame_index = (int)(GetTime() * ANIMATION_FPS) % 6;
+	Rectangle dest = (Rectangle){ wm->position.x, wm->position.y, 16, 20 };
+	DrawTexturePro(
+		wm->flame->atlas,
+		wm->flame->frames[frame_index],
+		dest,
+		(Vector2){8, 30},
+		(wm->angle * 180 / M_PI) - 180,
+		WHITE
+	);
+}
+
 static void	draw(wm *wm)
 {
 	DrawRectanglePro(
@@ -16,6 +30,8 @@ static void	draw(wm *wm)
 		wm->angle * 180 / M_PI,
 		WHITE
 	);
+	if (wm->is_propelling)
+		show_flame(wm);
 }
 
 static void	update(wm *wm, walls *walls)
@@ -35,16 +51,40 @@ static void	update(wm *wm, walls *walls)
 	wm->position.x = (float)SCREEN_WIDTH / 2 + (wm->radius * sin(wm->angle));
 	wm->position.y = (float)SCREEN_HEIGHT / 2 - (wm->radius * cos(wm->angle));
 }
-
 static void	propel(wm *wm)
 {
 	wm->acceleration += 2.2f;
 	if (wm->acceleration > 3.2f)
 		wm->acceleration = 3.2f;
+	if (!wm->is_propelling)
+		wm->is_propelling = true;
+}
+
+static void	init_flame(flame *flame)
+{
+	int curr_x = 0;
+	int curr_y = 0;
+
+	flame->atlas = LoadTexture("assets/fire.png");
+	for (int i = 0; i < 6; i ++)
+	{
+		flame->frames[i] = (Rectangle){
+			curr_x,
+			curr_y,
+			58,
+			72
+		};
+		curr_x += 58;
+		curr_x %= 174;
+		if (curr_x == 0)
+			curr_y += 72;
+	}
 }
 
 void	init_wm(wm *wm)
 {
+	flame *f = (flame *)malloc(sizeof(flame));
+
 	wm->score = 0;
 	wm->speed = 0.02f;
 	wm->radius = 150;
@@ -53,8 +93,12 @@ void	init_wm(wm *wm)
 	wm->position.x = (float)SCREEN_WIDTH / 2;
 	wm->position.y = (float)SCREEN_HEIGHT / 2 - (wm->radius * cos(wm->angle));
 	wm->texture = LoadTexture("assets/wm.png");
+	init_flame(f);
+	wm->flame = f;
+	wm->is_propelling = false;
 	wm->draw = draw;
 	wm->update = update;
 	wm->propel = propel;
+	wm->show_flame = show_flame;
 }
 
