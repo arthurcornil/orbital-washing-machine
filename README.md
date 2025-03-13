@@ -7,3 +7,4 @@
 You shall maintain a washing machine in orbital state.
 <br />
 </div>
+[![Orbital Wasching Machine Gameplay][owm-gameplay]]("assets/gameplay.gif")
