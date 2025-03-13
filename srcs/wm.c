@@ -16,12 +16,6 @@ static void	show_flame(wm *wm)
 
 static void	draw(wm *wm)
 {
-	DrawRectanglePro(
-        (Rectangle){ wm->position.x, wm->position.y, 20, 20 },
-        (Vector2){ 10, 10 },
-        wm->angle * 180 / M_PI,
-        *colors
-    );
 	DrawTexturePro(
 		wm->texture,
 		(Rectangle){ 0, 0, wm->texture.width, wm->texture.height },
@@ -41,6 +35,8 @@ static void	update(wm *wm, walls *walls)
 	wm->radius += wm->acceleration;
 	if (wm->radius >= 240)
 		wm->radius = 240;
+	else if (wm->radius <= 80)
+		wm->radius = 80;
 	if (wm->angle >= 2 * M_PI)
 	{
 		wm->score ++;
