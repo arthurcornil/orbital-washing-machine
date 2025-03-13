@@ -39,6 +39,7 @@ typedef struct flame
 {
 	Texture2D atlas;
 	Rectangle frames[6];
+	Sound fx;
 	void (*show)(struct flame *);
 }	flame;
 

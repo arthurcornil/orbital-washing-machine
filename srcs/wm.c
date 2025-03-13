@@ -58,6 +58,8 @@ static void	propel(wm *wm)
 		wm->acceleration = 3.2f;
 	if (!wm->is_propelling)
 		wm->is_propelling = true;
+	if (!IsSoundPlaying(wm->flame->fx))
+		PlaySound(wm->flame->fx);
 }
 
 static void	init_flame(flame *flame)
@@ -66,6 +68,7 @@ static void	init_flame(flame *flame)
 	int curr_y = 0;
 
 	flame->atlas = LoadTexture("assets/fire.png");
+	flame->fx = LoadSound("assets/engine.mp3");
 	for (int i = 0; i < 6; i ++)
 	{
 		flame->frames[i] = (Rectangle){

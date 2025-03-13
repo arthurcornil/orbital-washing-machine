@@ -63,7 +63,10 @@ int	main(void)
 			wm.propel(&wm);
 		}
 		else if (wm.is_propelling)
+		{
 			wm.is_propelling = false;
+			StopSound(wm.flame->fx);
+		}
 
 		if (play)
 			update_state(&wm, &walls);
@@ -82,6 +85,8 @@ int	main(void)
 	CloseAudioDevice();
 	UnloadTexture(wm.texture);
 	UnloadTexture(settings.sprite);
+	UnloadTexture(wm.flame->atlas);
 	UnloadMusicStream(music);
+	UnloadSound(wm.flame->fx);
 	CloseWindow();
 }
