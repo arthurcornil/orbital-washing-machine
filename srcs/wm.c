@@ -14,7 +14,7 @@ static void	show_flame(wm *wm)
 	);
 }
 
-static void	draw(wm *wm)
+void	draw_wm(wm *wm)
 {
 	DrawTexturePro(
 		wm->texture,
@@ -28,7 +28,7 @@ static void	draw(wm *wm)
 		show_flame(wm);
 }
 
-static void	update(wm *wm, walls *walls)
+void	update_wm(wm *wm, walls *walls)
 {
 	wm->angle += wm->speed;
 	wm->acceleration -= GRAVITY;
@@ -47,7 +47,8 @@ static void	update(wm *wm, walls *walls)
 	wm->position.x = (float)SCREEN_WIDTH / 2 + (wm->radius * sin(wm->angle));
 	wm->position.y = (float)SCREEN_HEIGHT / 2 - (wm->radius * cos(wm->angle));
 }
-static void	propel(wm *wm)
+
+void	propel(wm *wm)
 {
 	wm->acceleration += 2.2f;
 	if (wm->acceleration > 3.2f)
@@ -82,7 +83,7 @@ static void	init_flame(flame *flame)
 
 void	init_wm(wm *wm)
 {
-	flame *f = (flame *)malloc(sizeof(flame));
+	static flame f;
 
 	wm->score = 0;
 	wm->speed = 0.02f;
@@ -92,12 +93,8 @@ void	init_wm(wm *wm)
 	wm->position.x = (float)SCREEN_WIDTH / 2;
 	wm->position.y = (float)SCREEN_HEIGHT / 2 - (wm->radius * cos(wm->angle));
 	wm->texture = LoadTexture("assets/wm.png");
-	init_flame(f);
-	wm->flame = f;
+	init_flame(&f);
+	wm->flame = &f;
 	wm->is_propelling = false;
-	wm->draw = draw;
-	wm->update = update;
-	wm->propel = propel;
-	wm->show_flame = show_flame;
 }
 

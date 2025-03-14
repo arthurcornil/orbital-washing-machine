@@ -31,8 +31,6 @@ typedef struct walls
 	float speed;
 	bool grown;
 	bool must_hide;
-	void (*draw)(struct walls *);
-	void (*update)(struct walls *);
 }	walls;
 
 typedef struct flame
@@ -40,7 +38,6 @@ typedef struct flame
 	Texture2D atlas;
 	Rectangle frames[6];
 	Sound fx;
-	void (*show)(struct flame *);
 }	flame;
 
 typedef struct wm
@@ -54,10 +51,6 @@ typedef struct wm
 	Texture2D texture;
 	flame *flame;
 	bool is_propelling;
-	void (*draw)(struct wm *);
-	void (*update)(struct wm *, walls *);
-	void (*propel)(struct wm *);
-	void (*show_flame)(struct wm *);
 }	wm;
 
 typedef struct settings
@@ -69,7 +62,12 @@ typedef struct settings
 }	settings;
 
 void	init_wm(wm *wm);
+void	draw_wm(wm *wm);
+void	update_wm(wm *wm, walls *walls);
+void	propel(wm *wm);
 void	init_walls(walls *walls);
+void	draw_walls(walls *wals);
+void	update_walls(walls *walls);
 void	update_color(unsigned int score, Color *colors);
 
 extern Color colors[COLOR_NUMBER];

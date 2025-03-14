@@ -12,13 +12,6 @@ void	draw_middle_circle(wm *wm)
 		);
 }
 
-void	update_state(wm *wm, walls *walls)
-{
-		update_color(wm->score, colors);
-		wm->update(wm, walls);
-		walls->update(walls);
-}
-
 void	init_settings(settings *settings)
 {
 	settings->sprite = LoadTexture("assets/settings_sprite.png");
@@ -60,7 +53,7 @@ int	main(void)
 		{
 			if (!play)
 				play = true;
-			wm.propel(&wm);
+			propel(&wm);
 		}
 		else if (wm.is_propelling)
 		{
@@ -69,15 +62,19 @@ int	main(void)
 		}
 
 		if (play)
-			update_state(&wm, &walls);
+		{
+			update_color(wm.score, colors);
+			update_wm(&wm, &walls);
+			update_walls(&walls);
+		}
 		UpdateMusicStream(music);
 
 		BeginDrawing();
 		draw_settings(&settings);
 		DrawCircle(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 250, (Color){2, 12, 28, 255});
 		DrawRectangle(SCREEN_WIDTH / 2 - 2, SCREEN_HEIGHT / 2 - 250, 4, 250, (Color){255, 255, 255, 20});
-		walls.draw(&walls);
-		wm.draw(&wm);
+		draw_walls(&walls);
+		draw_wm(&wm);
 		draw_middle_circle(&wm);
 		ClearBackground(*colors);
 		EndDrawing();

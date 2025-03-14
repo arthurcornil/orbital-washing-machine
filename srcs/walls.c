@@ -1,6 +1,6 @@
 #include "../includes/owm.h"
 
-static void	draw(walls *walls)
+void	draw_walls(walls *walls)
 {
 	for (int i = 0; i < (walls->number); i ++)
 	{
@@ -92,7 +92,7 @@ static void	hide (walls *walls)
 }
 
 
-static void update(walls *walls)
+void	update_walls(walls *walls)
 {
 	if (!walls->grown && !walls->must_hide)
 		grow(walls);
@@ -125,8 +125,6 @@ void	init_walls(walls *walls)
 	walls->number = 4;
 	walls->grown = false;
 	walls->must_hide = false;
-	walls->draw = draw;
-	walls->update = update;
 	walls->speed = -0.002f;
 	generate_walls(walls);
 }
