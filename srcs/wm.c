@@ -16,6 +16,12 @@ static void	show_flame(wm *wm)
 
 void	draw_wm(wm *wm)
 {
+	DrawRectanglePro(
+        (Rectangle){ wm->position.x, wm->position.y, 20, 20 },
+        (Vector2){ 10, 10 },
+        wm->angle * 180 / M_PI,
+		WHITE
+    );
 	DrawTexturePro(
 		wm->texture,
 		(Rectangle){ 0, 0, wm->texture.width, wm->texture.height },

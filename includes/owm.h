@@ -69,7 +69,8 @@ void	init_walls(walls *walls);
 void	draw_walls(walls *wals);
 void	update_walls(walls *walls);
 void	update_color(unsigned int score, Color *colors);
+bool	check_collision(wm *wm, walls *walls);
 
-extern Color colors[COLOR_NUMBER];
+extern Color g_colors[COLOR_NUMBER];
 
 #endif

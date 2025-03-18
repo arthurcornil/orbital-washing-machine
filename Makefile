@@ -6,7 +6,8 @@ LIB = ./lib/libraylib.a
 CFILES = main.c\
 		 wm.c\
 		 colors.c\
-		 walls.c
+		 walls.c\
+		 collisions.c
 
 ${NAME}:
 	${CC} ${FLAGS} ${LIB} ${addprefix ${SOURCE}, ${CFILES}} -o ${NAME}
