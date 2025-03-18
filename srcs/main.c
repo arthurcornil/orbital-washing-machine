@@ -2,7 +2,7 @@
 
 void	draw_middle_circle(wm *wm)
 {
-		DrawCircle(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 70, *colors);
+		DrawCircle(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 70, *g_colors);
 		DrawText(
 			TextFormat("%u", wm->score), 
 			(SCREEN_WIDTH / 2) - (MeasureText(TextFormat("%u", wm->score), 60) / 2), 
@@ -61,9 +61,10 @@ int	main(void)
 			StopSound(wm.flame->fx);
 		}
 
+		//TODO: Use collision checker
 		if (play)
 		{
-			update_color(wm.score, colors);
+			update_color(wm.score, g_colors);
 			update_wm(&wm, &walls);
 			update_walls(&walls);
 		}
@@ -76,7 +77,7 @@ int	main(void)
 		draw_walls(&walls);
 		draw_wm(&wm);
 		draw_middle_circle(&wm);
-		ClearBackground(*colors);
+		ClearBackground(*g_colors);
 		EndDrawing();
 	}
 	CloseAudioDevice();

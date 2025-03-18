@@ -1,6 +1,6 @@
 #include "../includes/owm.h"
 
-Color colors[COLOR_NUMBER] = {
+Color g_colors[COLOR_NUMBER] = {
     {103, 194, 89, 255},
     {81, 111, 201, 255},
     {166, 109, 201, 255},

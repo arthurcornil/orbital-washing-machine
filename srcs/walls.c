@@ -13,7 +13,7 @@ void	draw_walls(walls *walls)
 				},
 				(Vector2){ 10, 0 },
 				(walls->collection)[i].angle * 180 / M_PI,
-				*colors
+				*g_colors
 		);
 		DrawRectanglePro(
 				(Rectangle){ 
@@ -24,7 +24,7 @@ void	draw_walls(walls *walls)
 				},
 				(Vector2){ 10, 0 },
 				((walls->collection)[i].angle * 180 / M_PI) - 180,
-				*colors
+				*g_colors
 		);
 	}
 }
