@@ -54,14 +54,14 @@ void	update_wm(wm *wm, walls *walls)
 	wm->position.y = (float)SCREEN_HEIGHT / 2 - (wm->radius * cos(wm->angle));
 }
 
-void	propel(wm *wm)
+void	propel(wm *wm, bool play_fx)
 {
 	wm->acceleration += 2.2f;
 	if (wm->acceleration > 3.2f)
 		wm->acceleration = 3.2f;
 	if (!wm->is_propelling)
 		wm->is_propelling = true;
-	if (!IsSoundPlaying(wm->flame->fx))
+	if (!IsSoundPlaying(wm->flame->fx) && play_fx)
 		PlaySound(wm->flame->fx);
 }
 

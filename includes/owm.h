@@ -56,15 +56,20 @@ typedef struct wm
 typedef struct settings
 {
 	Texture2D sprite;
-	void (*play);
-	void (*toggle_music);
-	void (*toggle_fx);
+	Rectangle buttons[2];
 }	settings;
+
+typedef struct game
+{
+	bool is_playing;
+	bool is_music_playing;
+	bool is_fx_playing;
+}	game;
 
 void	init_wm(wm *wm);
 void	draw_wm(wm *wm);
 void	update_wm(wm *wm, walls *walls);
-void	propel(wm *wm);
+void	propel(wm *wm, bool play_fx);
 void	init_walls(walls *walls);
 void	draw_walls(walls *wals);
 void	update_walls(walls *walls);
